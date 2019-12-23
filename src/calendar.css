@@ -1,0 +1,91 @@
+:root {
+  --cal-background-color: #fff;
+  --cal-border-color: #ccc;
+  --cal-button-color: #cccccb;
+  --cal-weekend-color: #FF0202;
+  --cal-header-font-size: 20px;
+  --cal-date-font-size: 15px;
+  --cal-header-padding: 30px;
+  --cal-padding: 10px;
+  --cal-padding-bottom: 11px;
+  --cal-button-width: 40px;
+  --cal-button-margin: 20px;
+  --cal-border-width: 1px;
+  --cal-border-radius: 5px;
+}
+
+.cal {
+  position: relative;
+  font-family: Helvetica Neue, Arial, sans-serif;
+  cursor: default;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -ms-user-select: none;
+}
+
+.cal .cal-header {
+  padding: var(--cal-header-padding) 0;
+  font-weight: bold;
+  text-align: center;
+  font-size: var(--cal-header-font-size);
+}
+
+.cal .cal-prev-button, .cal .cal-next-button {
+  position: absolute;
+  width: var(--cal-button-width);
+  height: var(--cal-button-width);
+  fill: var(--cal-button-color);
+}
+
+.cal .cal-prev-button {
+  left: calc(0% - var(--cal-button-width) - var(--cal-button-margin));
+  margin-top: calc(50% - var(--cal-button-width) - var(--cal-padding));
+}
+
+.cal .cal-next-button {
+  left: calc(100% + var(--cal-button-margin));
+  margin-top: calc(50% - var(--cal-button-width) - var(--cal-padding));
+}
+
+.cal .cal-week {
+  border-bottom: solid var(--cal-border-width) var(--cal-border-color);
+  margin-bottom: calc(0px - var(--cal-border-width));
+}
+
+.cal .cal-body {
+  margin: 0 auto;
+  padding: var(--cal-padding) var(--cal-padding) var(--cal-padding-bottom);
+  background-color: var(--cal-background-color);
+  border: solid var(--cal-border-width) var(--cal-border-color);
+  border-radius: var(--cal-border-radius); 
+}
+
+.cal .cal-week, .cal .cal-month {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 1fr
+}
+
+/* square height */
+.cal .cal-day:before, .cal .cal-date:before {
+  padding-top: 100%;
+  display: block;
+  content: '';
+}
+
+.cal .cal-day {
+  font-weight: bold;
+}
+
+.cal .cal-day .cal-day-weekend, .cal .cal-date .cal-date-weekend {
+  color: var(--cal-weekend-color);
+}
+
+.cal .cal-day, .cal .cal-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--cal-date-font-size);
+}
